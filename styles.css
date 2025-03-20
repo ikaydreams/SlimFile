@@ -15,6 +15,9 @@ body {
     flex-direction: column;
 }
 
+h1{
+  color: white;  
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
