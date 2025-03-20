@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,14 +11,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav class="main-nav">
         <div class="container">
-            <a href="index.html" class="active">Home</a>
-            <a href="about.html">About</a>
-            <a href="developers.html">Developer</a>
+            <div class="logo-container">
+                <svg class="file-icon" viewBox="0 0 24 24" width="48" height="48">
+                    <path fill="#ffffff" d="M14,2H6C4.9,2 4,2.9 4,4V20C4,21.1 4.9,22 6,22H18C19.1,22 20,21.1 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                </svg>
+                <h1>SlimFile</h1>
+            </div>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="developers.html">Developer</a>
+            </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="logo-container">
@@ -30,7 +46,9 @@
         </div>
     </section>
 
+    <!-- Main Content -->
     <main class="container">
+        <!-- Upload Section -->
         <section class="upload-section">
             <div class="drop-zone" id="dropZone">
                 <input type="file" id="fileInput" accept="image/*,application/pdf">
@@ -55,6 +73,7 @@
             </div>
         </section>
 
+        <!-- Features Section -->
         <section class="features">
             <div class="feature-card">
                 <h3>⚡ Instant Processing</h3>
@@ -68,14 +87,10 @@
                 <h3>📈 Smart Optimization</h3>
                 <p>Adaptive algorithms maintain quality while reducing size</p>
             </div>
-
             <div class="feature-card">
                 <div class="feature-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
-                        
-                        <!-- Graph line -->
-                        <path fill="none" stroke="#ffffff" stroke-width="2" 
-                              d="M3 17l6-6 4 4 8-8"/>
+                        <path fill="none" stroke="#ffffff" stroke-width="2" d="M3 17l6-6 4 4 8-8"/>
                     </svg>
                 </div>
                 <h3>Best Compression Algorithm</h3>
@@ -84,6 +99,7 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div>
