@@ -1,8 +1,10 @@
-// Navigation Active State
+// Navigation Active State and Hamburger Menu Toggle
 document.addEventListener('DOMContentLoaded', () => {
     // Set active state for navigation links
     const currentPage = location.pathname.split('/').pop();
-    document.querySelectorAll('.main-nav a').forEach(link => {
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    navLinks.forEach(link => {
         if (link.getAttribute('href') === currentPage) {
             link.classList.add('active');
         }
@@ -10,17 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Hamburger Menu Toggle
     const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    const navMenu = document.querySelector('.nav-links');
 
-    if (hamburger && navLinks) {
+    if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
 
         // Close the mobile menu when a link is clicked
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+                navMenu.classList.remove('active');
             });
         });
     }
@@ -28,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Carousel Logic
 let currentSlide = 0;
+
 function moveSlide(direction) {
     const carouselInner = document.getElementById('carouselInner');
     if (!carouselInner) return;
