@@ -34,15 +34,15 @@ body {
 
 .main-nav .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allow navigation items to wrap on mobile */
+    flex-wrap: wrap;
 }
 
 .main-nav a {
     color: white;
     text-decoration: none;
-    margin: 0 1rem; /* Smaller margin for mobile */
+    margin: 0 1rem;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     transition: background 0.3s;
@@ -67,6 +67,32 @@ body {
     width: 50px;
     height: 60px;
     filter: invert(98%) sepia(99%) saturate(7%) hue-rotate(356deg) brightness(103%) contrast(100%);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
 
 /* Hero Section */
@@ -103,7 +129,7 @@ body {
 
 .preview-box {
     margin: 2rem auto;
-    max-width: 100%; /* Full width on mobile */
+    max-width: 100%;
     border-radius: 0.75rem;
     overflow: hidden;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -204,7 +230,7 @@ button:hover {
 /* Carousel */
 .carousel {
     position: relative;
-    max-width: 100%; /* Full width on mobile */
+    max-width: 100%;
     margin: 2rem auto;
     overflow: hidden;
     border-radius: 1rem;
@@ -222,8 +248,8 @@ button:hover {
 
 .carousel-img {
     width: 100%;
-    height: auto; /* Adjust height automatically */
-    max-height: 300px; /* Limit height on mobile */
+    height: auto;
+    max-height: 300px;
     object-fit: cover;
 }
 
@@ -289,37 +315,65 @@ footer {
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     .container {
-        padding: 1rem; /* Smaller padding for mobile */
+        padding: 1rem;
     }
 
     .hero {
-        padding: 2rem 1rem; /* Smaller padding for mobile */
+        padding: 2rem 1rem;
     }
 
     .upload-section {
-        padding: 1rem; /* Smaller padding for mobile */
-        margin-top: -2rem; /* Adjust margin for mobile */
+        padding: 1rem;
+        margin-top: -2rem;
     }
 
     .drop-zone {
-        padding: 1.5rem; /* Smaller padding for mobile */
+        padding: 1.5rem;
     }
 
     .features {
-        grid-template-columns: 1fr; /* Stack cards vertically on mobile */
-        gap: 1rem; /* Smaller gap between cards */
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .feature-card {
-        padding: 1rem; /* Smaller padding for mobile */
+        padding: 1rem;
     }
 
     .carousel-img {
-        max-height: 200px; /* Smaller height for mobile */
+        max-height: 200px;
     }
 
     .carousel-control {
-        padding: 0.5rem; /* Smaller padding for mobile */
-        font-size: 0.875rem; /* Smaller font size for mobile */
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    /* Hamburger Menu for Mobile */
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: linear-gradient(135deg, var(--gradient-2), var(--gradient-3));
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .main-nav a {
+        margin: 0.5rem 0;
+        padding: 0.75rem 1rem;
+        width: 100%;
+        text-align: center;
     }
 }
