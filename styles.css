@@ -203,17 +203,10 @@ button:hover {
 }
 
 /* Developer Page Styles */
-/* Responsive Carousel */
-.carousel-container {
-    display: flex;
-    justify-content: center;
-    margin: 4rem auto;
-}
-
 .carousel {
     position: relative;
-    width: 90%;
-    max-width: 800px;
+    max-width: 600px;
+    margin: 2rem auto;
     overflow: hidden;
     border-radius: 1rem;
 }
@@ -225,35 +218,30 @@ button:hover {
 
 .carousel-item {
     min-width: 100%;
+    position: relative;
 }
 
 .carousel-img {
     width: 100%;
-    height: auto;
-    border-radius: 1rem;
+    height: 400px;
+    object-fit: cover;
 }
 
-/* Carousel Controls */
 .carousel-control {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: rgba(0,0,0,0.5);
     color: white;
-    padding: 0.8rem 1.2rem;
-    border: none;
+    padding: 1rem;
     cursor: pointer;
+    border: none;
     z-index: 10;
-    font-size: 1.5rem;
-    border-radius: 50%;
 }
 
-.carousel-control.prev { left: 10px; }
-.carousel-control.next { right: 10px; }
+.carousel-control.prev { left: 0; }
+.carousel-control.next { right: 0; }
 
-.carousel-control:hover {
-    background: rgba(0,0,0,0.7);
-}
 .bio ul {
     text-align: left;
     max-width: 500px;
