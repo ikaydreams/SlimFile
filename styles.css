@@ -15,6 +15,33 @@ body {
     flex-direction: column;
 }
 
+/* Animation 1: Fade In + Slide Up */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation 2: Gentle Floating Effect */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* Apply both animations only on mobile */
+@media (max-width: 768px) {
+  .hero-image.mobile-only img {
+    animation: fadeSlideUp 1s ease forwards, float 3s ease-in-out infinite;
+    animation-delay: 0s, 1s; /* Start float after fade */
+  }
+}
+
 /* Hide cartoon image by default */
 .hero-image.mobile-only {
     display: none;
