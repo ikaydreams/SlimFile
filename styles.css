@@ -104,7 +104,7 @@ h1{
 /* Navigation */
 .main-nav {
     background: linear-gradient(135deg, var(--gradient-2), var(--gradient-3));
-    padding: 1rem;
+    padding: 0.5rem;
     position: sticky;
     top: 0;
     z-index: 100;
