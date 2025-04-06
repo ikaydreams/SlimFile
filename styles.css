@@ -15,12 +15,26 @@ body {
     flex-direction: column;
 }
 
-.hero-image img {
-  max-width: 400px;
-  width: 100%;
-  height: auto;
-  border-radius: 30px;
+/* Hide cartoon image by default */
+.hero-image.mobile-only {
+    display: none;
 }
+
+/* Show only on screens 768px and below */
+@media (max-width: 768px) {
+    .hero-image.mobile-only {
+        display: block;
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+
+    .hero-image.mobile-only img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 30px;
+    }
+}
+
 
 
 /* Logo container styling */
