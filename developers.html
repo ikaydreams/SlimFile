@@ -3,122 +3,127 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>SlimFile Developer</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Your existing CSS -->
+    <title>SlimFile Developers</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        /* Scoped carousel styles - won't affect other elements */
-        .sf-carousel {
+        /* Tiled Carousel Container - Won't interfere with existing styles */
+        .dev-grid-carousel {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
             position: relative;
-            max-width: 800px;
-            margin: 50px auto;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
         }
 
-        .sf-carousel .carousel-container {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .sf-carousel .profile-card {
-            min-width: 100%;
-            padding: 40px;
-            background: white;
+        .dev-grid-title {
             text-align: center;
-            border-radius: 15px;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: #2c3e50;
         }
 
-        .sf-carousel .profile-img {
-            width: 150px;
-            height: 150px;
+        .dev-grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-tile {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .profile-tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-tile-img {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid var(--primary-color, #3498db);
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 4px solid #3498db;
+            margin: 0 auto 15px;
         }
 
-        .sf-carousel h2 {
-            color: var(--dark-color, #2c3e50);
+        .profile-tile h3 {
+            color: #2c3e50;
             margin-bottom: 10px;
-            font-size: 28px;
+            font-size: 1.3rem;
         }
 
-        .sf-carousel p {
+        .profile-tile p {
+            color: #7f8c8d;
             margin: 8px 0;
-            color: var(--text-muted, #7f8c8d);
-            font-size: 16px;
+            font-size: 0.9rem;
         }
 
-        .sf-carousel .carousel-nav {
-            text-align: center;
-            margin-top: 20px;
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 15px;
         }
 
-        .sf-carousel .carousel-dot {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            background-color: var(--light-gray, #bdc3c7);
-            border-radius: 50%;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .sf-carousel .carousel-dot.active {
-            background-color: var(--primary-color, #3498db);
-        }
-
-        .sf-carousel .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(52, 152, 219, 0.7);
+        .carousel-btn {
+            background: #3498db;
             color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 50%;
+            padding: 10px 20px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 18px;
-            z-index: 10;
-            transition: background-color 0.3s;
+            font-size: 1rem;
+            transition: background 0.3s;
         }
 
-        .sf-carousel .carousel-btn:hover {
-            background-color: rgba(52, 152, 219, 1);
+        .carousel-btn:hover {
+            background: #2980b9;
         }
 
-        .sf-carousel .prev-btn {
-            left: 10px;
+        .carousel-btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
         }
 
-        .sf-carousel .next-btn {
-            right: 10px;
+        .page-indicator {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            color: #7f8c8d;
         }
 
-        /* Responsive adjustments */
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .dev-grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
-            .sf-carousel .profile-card {
-                padding: 30px 20px;
+            .dev-grid-container {
+                gap: 20px;
             }
-
-            .sf-carousel .profile-img {
-                width: 120px;
-                height: 120px;
+            
+            .profile-tile {
+                padding: 20px;
             }
         }
 
-        @media (max-width: 480px) {
-            .sf-carousel h2 {
-                font-size: 24px;
+        @media (max-width: 576px) {
+            .dev-grid-container {
+                grid-template-columns: 1fr;
             }
-
-            .sf-carousel p {
-                font-size: 14px;
+            
+            .profile-tile-img {
+                width: 100px;
+                height: 100px;
             }
         }
     </style>
@@ -134,111 +139,143 @@
     </nav>
 
     <main class="container">
-        <div class="sf-carousel">
-            <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+        <div class="dev-grid-carousel">
+            <h2 class="dev-grid-title">Our Development Team</h2>
             
-            <div class="carousel-container">
-                <!-- Slide 1 - Isaac -->
-                <section class="profile-card">
-                    <img src="isaac.png" alt="Isaac Abakah" class="profile-img">
-                    <h2>Isaac Abakah</h2>
+            <div class="dev-grid-container" id="devGrid">
+                <!-- Profile Tile 1 -->
+                <div class="profile-tile">
+                    <img src="isaac.png" alt="Isaac Abakah" class="profile-tile-img">
+                    <h3>Isaac Abakah</h3>
                     <p>📚 BSc Computer Science</p>
                     <p>🏛 Central University</p>
                     <p>🧠 Algorithm Developer</p>
                     <p>💼 CEO & Founder, Chem Lab Inc.</p>
-                    <p>🚀 CEO & Founder, SlimFile (2025)</p>
-                </section>
-
-                 <section class="profile-card">
-                    <img src="isaac.png" alt="Isaac Abakah" class="profile-img">
-                    <h2>Isaac Abakah</h2>
-                    <p>📚 BSc Computer Science</p>
-                    <p>🏛 Central University</p>
-                    <p>🧠 Algorithm Developer</p>
-                    <p>💼 CEO & Founder, Chem Lab Inc.</p>
-                    <p>🚀 CEO & Founder, SlimFile (2025)</p>
-                </section>
-
-                 <section class="profile-card">
-                    <img src="isaac.png" alt="Isaac Abakah" class="profile-img">
-                    <h2>Isaac Abakah</h2>
-                    <p>📚 BSc Computer Science</p>
-                    <p>🏛 Central University</p>
-                    <p>🧠 Algorithm Developer</p>
-                    <p>💼 CEO & Founder, Chem Lab Inc.</p>
-                    <p>🚀 CEO & Founder, SlimFile (2025)</p>
-                </section>
-
-                 <section class="profile-card">
-                    <img src="isaac.png" alt="Isaac Abakah" class="profile-img">
-                    <h2>Isaac Abakah</h2>
-                    <p>📚 BSc Computer Science</p>
-                    <p>🏛 Central University</p>
-                    <p>🧠 Algorithm Developer</p>
-                    <p>💼 CEO & Founder, Chem Lab Inc.</p>
-                    <p>🚀 CEO & Founder, SlimFile (2025)</p>
-                </section>
-
-                 <section class="profile-card">
-                    <img src="isaac.png" alt="Isaac Abakah" class="profile-img">
-                    <h2>Isaac Abakah</h2>
-                    <p>📚 BSc Computer Science</p>
-                    <p>🏛 Central University</p>
-                    <p>🧠 Algorithm Developer</p>
-                    <p>💼 CEO & Founder, Chem Lab Inc.</p>
-                    <p>🚀 CEO & Founder, SlimFile (2025)</p>
-                </section>
-
-                 <section class="profile-card">
-                    <img src="isaac.png" alt="Isaac Abakah" class="profile-img">
-                    <h2>Isaac Abakah</h2>
-                    <p>📚 BSc Computer Science</p>
-                    <p>🏛 Central University</p>
-                    <p>🧠 Algorithm Developer</p>
-                    <p>💼 CEO & Founder, Chem Lab Inc.</p>
-                    <p>🚀 CEO & Founder, SlimFile (2025)</p>
-                </section>
-
-                <!-- Additional slides... -->
+                    <p>🚀 CEO & Founder, SlimFile</p>
+                </div>
+                
+                <!-- Profile Tile 2 -->
+                <div class="profile-tile">
+                    <img src="https://via.placeholder.com/150" alt="Developer 2" class="profile-tile-img">
+                    <h3>Sarah Johnson</h3>
+                    <p>📚 MSc Software Engineering</p>
+                    <p>🏛 MIT</p>
+                    <p>💻 Frontend Specialist</p>
+                    <p>💼 Lead UI Developer</p>
+                    <p>🌟 SlimFile Co-Founder</p>
+                </div>
+                
+                <!-- Profile Tile 3 -->
+                <div class="profile-tile">
+                    <img src="https://via.placeholder.com/150" alt="Developer 3" class="profile-tile-img">
+                    <h3>Michael Chen</h3>
+                    <p>📚 PhD Data Science</p>
+                    <p>🏛 Stanford</p>
+                    <p>📊 Data Architect</p>
+                    <p>💼 Database Engineer</p>
+                    <p>🌟 SlimFile Tech Lead</p>
+                </div>
+                
+                <!-- Profile Tile 4 -->
+                <div class="profile-tile">
+                    <img src="https://via.placeholder.com/150" alt="Developer 4" class="profile-tile-img">
+                    <h3>Emily Rodriguez</h3>
+                    <p>📚 BEng Computer Engineering</p>
+                    <p>🏛 ETH Zurich</p>
+                    <p>⚙️ Systems Developer</p>
+                    <p>💼 DevOps Engineer</p>
+                    <p>🌟 SlimFile Operations</p>
+                </div>
+                
+                <!-- Profile Tile 5 -->
+                <div class="profile-tile">
+                    <img src="https://via.placeholder.com/150" alt="Developer 5" class="profile-tile-img">
+                    <h3>David Kim</h3>
+                    <p>📚 MSc Artificial Intelligence</p>
+                    <p>🏛 Carnegie Mellon</p>
+                    <p>🧠 AI Researcher</p>
+                    <p>💼 Machine Learning Lead</p>
+                    <p>🌟 SlimFile AI Division</p>
+                </div>
+                
+                <!-- Profile Tile 6 -->
+                <div class="profile-tile">
+                    <img src="https://via.placeholder.com/150" alt="Developer 6" class="profile-tile-img">
+                    <h3>Olivia Smith</h3>
+                    <p>📚 BSc Cybersecurity</p>
+                    <p>🏛 University of London</p>
+                    <p>🔒 Security Expert</p>
+                    <p>💼 Chief Security Officer</p>
+                    <p>🌟 SlimFile Security</p>
+                </div>
             </div>
-
-            <div class="carousel-nav">
-                <span class="carousel-dot active" onclick="goToSlide(0)"></span>
-                <!-- Additional dots... -->
+            
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prevBtn" disabled>Previous</button>
+                <div class="page-indicator">Page <span id="currentPage">1</span> of <span id="totalPages">2</span></div>
+                <button class="carousel-btn" id="nextBtn">Next</button>
             </div>
         </div>
     </main>
 
     <script>
-        // Same JavaScript as before
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.sf-carousel .profile-card');
-        const dots = document.querySelectorAll('.sf-carousel .carousel-dot');
-        const carousel = document.querySelector('.sf-carousel .carousel-container');
-
-        function showSlide(n) {
-            currentSlide = (n + slides.length) % slides.length;
-            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+        document.addEventListener('DOMContentLoaded', function() {
+            const grid = document.getElementById('devGrid');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const currentPageEl = document.getElementById('currentPage');
+            const totalPagesEl = document.getElementById('totalPages');
             
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
+            const tiles = document.querySelectorAll('.profile-tile');
+            const tilesPerPage = 6; // 3x2 grid
+            let currentPage = 1;
+            const totalPages = Math.ceil(tiles.length / tilesPerPage);
+            
+            totalPagesEl.textContent = totalPages;
+            
+            function updateGrid() {
+                // Hide all tiles
+                tiles.forEach(tile => {
+                    tile.style.display = 'none';
+                });
+                
+                // Show tiles for current page
+                const startIndex = (currentPage - 1) * tilesPerPage;
+                const endIndex = startIndex + tilesPerPage;
+                
+                for (let i = startIndex; i < endIndex && i < tiles.length; i++) {
+                    tiles[i].style.display = 'block';
+                }
+                
+                // Update buttons
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === totalPages;
+                currentPageEl.textContent = currentPage;
+            }
+            
+            prevBtn.addEventListener('click', function() {
+                if (currentPage > 1) {
+                    currentPage--;
+                    updateGrid();
+                }
             });
-        }
-
-        function moveSlide(n) {
-            showSlide(currentSlide + n);
-        }
-
-        function goToSlide(n) {
-            showSlide(n);
-        }
-
-        setInterval(() => {
-            moveSlide(1);
-        }, 5000);
-
-        showSlide(0);
+            
+            nextBtn.addEventListener('click', function() {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    updateGrid();
+                }
+            });
+            
+            // Initialize
+            updateGrid();
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                // You could adjust tilesPerPage based on screen size if needed
+                // For this example, we'll keep it simple
+            });
+        });
     </script>
 </body>
 </html>
