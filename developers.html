@@ -4,9 +4,124 @@
 <head>
     <meta charset="UTF-8">
     <title>SlimFile Developer</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Your existing CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Scoped carousel styles - won't affect other elements */
+        .sf-carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .sf-carousel .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .sf-carousel .profile-card {
+            min-width: 100%;
+            padding: 40px;
+            background: white;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .sf-carousel .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color, #3498db);
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .sf-carousel h2 {
+            color: var(--dark-color, #2c3e50);
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .sf-carousel p {
+            margin: 8px 0;
+            color: var(--text-muted, #7f8c8d);
+            font-size: 16px;
+        }
+
+        .sf-carousel .carousel-nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .sf-carousel .carousel-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--light-gray, #bdc3c7);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .sf-carousel .carousel-dot.active {
+            background-color: var(--primary-color, #3498db);
+        }
+
+        .sf-carousel .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(52, 152, 219, 0.7);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+
+        .sf-carousel .carousel-btn:hover {
+            background-color: rgba(52, 152, 219, 1);
+        }
+
+        .sf-carousel .prev-btn {
+            left: 10px;
+        }
+
+        .sf-carousel .next-btn {
+            right: 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .sf-carousel .profile-card {
+                padding: 30px 20px;
+            }
+
+            .sf-carousel .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sf-carousel h2 {
+                font-size: 24px;
+            }
+
+            .sf-carousel p {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -19,152 +134,111 @@
     </nav>
 
     <main class="container">
-        <section class="page-section">
-            <div class="profile-card">
-                <h2>About the Developer</h2>
+        <div class="sf-carousel">
+            <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+            
+            <div class="carousel-container">
+                <!-- Slide 1 - Isaac -->
+                <section class="profile-card">
+                    <img src="isaac.png" alt="Isaac Abakah" class="profile-img">
+                    <h2>Isaac Abakah</h2>
+                    <p>📚 BSc Computer Science</p>
+                    <p>🏛 Central University</p>
+                    <p>🧠 Algorithm Developer</p>
+                    <p>💼 CEO & Founder, Chem Lab Inc.</p>
+                    <p>🚀 CEO & Founder, SlimFile (2025)</p>
+                </section>
 
-                <h3>Isaac Abakah</h3>
-                <p>📚 BSc Computer Science<br>
-                    🏛 Central University<br>
-                    🧠 Algorithm Developer<br>
-                    💼 CEO & Founder, Chem Lab Inc.<br>
-                    🚀 CEO & Founder, SlimFile (2025)</p>
+                 <section class="profile-card">
+                    <img src="isaac.png" alt="Isaac Abakah" class="profile-img">
+                    <h2>Isaac Abakah</h2>
+                    <p>📚 BSc Computer Science</p>
+                    <p>🏛 Central University</p>
+                    <p>🧠 Algorithm Developer</p>
+                    <p>💼 CEO & Founder, Chem Lab Inc.</p>
+                    <p>🚀 CEO & Founder, SlimFile (2025)</p>
+                </section>
 
-                <div class="bio">
-                    <p>Isaac is a passionate software developer, entrepreneur, and digital innovator with expertise in
-                        web application development, algorithm development, UI/UX design, cloud and browser-based
-                        technologies, and startup leadership.</p>
-                </div>
+                 <section class="profile-card">
+                    <img src="isaac.png" alt="Isaac Abakah" class="profile-img">
+                    <h2>Isaac Abakah</h2>
+                    <p>📚 BSc Computer Science</p>
+                    <p>🏛 Central University</p>
+                    <p>🧠 Algorithm Developer</p>
+                    <p>💼 CEO & Founder, Chem Lab Inc.</p>
+                    <p>🚀 CEO & Founder, SlimFile (2025)</p>
+                </section>
 
-                <h3>The Vision Behind SlimFile</h3>
-                <p>Isaac founded <strong>SlimFile in 2025</strong> to create a fast, secure, and privacy-focused file
-                    compression tool. SlimFile was built with three key principles:</p>
-                <ul>
-                    <li><strong>Efficiency:</strong> Fast, high-quality file compression.</li>
-                    <li><strong>Privacy:</strong> 100% browser-based processing for security.</li>
-                    <li><strong>Simplicity:</strong> User-friendly experience for everyone.</li>
-                </ul>
+                 <section class="profile-card">
+                    <img src="isaac.png" alt="Isaac Abakah" class="profile-img">
+                    <h2>Isaac Abakah</h2>
+                    <p>📚 BSc Computer Science</p>
+                    <p>🏛 Central University</p>
+                    <p>🧠 Algorithm Developer</p>
+                    <p>💼 CEO & Founder, Chem Lab Inc.</p>
+                    <p>🚀 CEO & Founder, SlimFile (2025)</p>
+                </section>
 
-                <h3>Key Achievements</h3>
-                <ul>
-                    <li>Led the development of Chem Lab Inc., focusing on tech-driven innovations.</li>
-                    <li>Developed an advanced file compression algorithm.</li>
-                    <li>Built multiple web applications prioritizing performance and user experience.</li>
-                    <li>Participated in technology and startup events advocating for digital efficiency.</li>
-                </ul>
+                 <section class="profile-card">
+                    <img src="isaac.png" alt="Isaac Abakah" class="profile-img">
+                    <h2>Isaac Abakah</h2>
+                    <p>📚 BSc Computer Science</p>
+                    <p>🏛 Central University</p>
+                    <p>🧠 Algorithm Developer</p>
+                    <p>💼 CEO & Founder, Chem Lab Inc.</p>
+                    <p>🚀 CEO & Founder, SlimFile (2025)</p>
+                </section>
 
-                <h3>Future Goals & Innovations</h3>
-                <ul>
-                    <li>Expand SlimFile to support more file formats like PSD and RAW.</li>
-                    <li>Enhance file optimization using AI-powered algorithms.</li>
-                    <li>Introduce optional cloud syncing for seamless file management.</li>
-                    <li>Ensure mobile compatibility for an optimized experience.</li>
-                </ul>
+                 <section class="profile-card">
+                    <img src="isaac.png" alt="Isaac Abakah" class="profile-img">
+                    <h2>Isaac Abakah</h2>
+                    <p>📚 BSc Computer Science</p>
+                    <p>🏛 Central University</p>
+                    <p>🧠 Algorithm Developer</p>
+                    <p>💼 CEO & Founder, Chem Lab Inc.</p>
+                    <p>🚀 CEO & Founder, SlimFile (2025)</p>
+                </section>
 
-
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/isaac-abakah/"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-                <h3>Abendin Abel Awenatei</h3>
-                <p>📚 BSc Computer Science<br>
-                    🏛 Central University<br>
-                    🏛 Web Developer<br>
-                    🛠 Backend & Frontend Developer, SlimFile Inc.(2025)</p>
-
-                <div class="bio">
-                    <p>Abel is a skilled web developer focused on building responsive and efficient web applications. His experience spans across frontend frameworks, backend systems, and full-stack development—delivering fast, secure, and scalable digital solutions</p>
-                </div>
-
-                <div class="social-links">
-                    <a href="linkedin.com/in/abendin-abel-601a0b351"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-                <h3>Joel Eli Tsewagbe</h3>
-                <p>📚 BSc Computer Science<br>
-                    🏛 Central University<br>
-                    🧠 Algorithm Developer, SlimFile Inc.(2025)<br>
-                    🔬 Data Structures & Algorithm
-                </p>
-
-                <div class="bio">
-                    <p>Joel is a brilliant thinker and developer passionate about solving complex problems with algorithms. He designs and optimizes core logic systems, enabling smooth, intelligent functionalities within apps and platforms.</p>
-                </div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/isaac-abakah/"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-
-                <h3>Ferdinard Papa Ampomah Ofei</h3>
-                <p>📚 BSc Computer Science<br>
-                    🏛 Central University<br>
-                    🎨 UI/UX & Graphic Designer, SlimFile Inc.(2025)
-                    </p>
-
-                <div class="bio">
-                    <p>Ferdinand is a visionary designer with a flair for crafting intuitive user experiences and stunning visual designs. He specializes in UI/UX design, brand identity, and creative direction, bringing digital ideas to life through thoughtful design and user-centered thinking.
-
-                    </p>
-                </div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/isaac-abakah/"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-
-                <h3>Helena Amoabeng</h3>
-                <p>📚 BSc Computer Science<br>
-                    🏛 Central University<br>
-                    📈 Digital Marketer, SlimFile Inc.(2025)</p>
-
-                <div class="bio">
-                    <p>Helena is a dynamic digital marketer with a strong grasp of online trends, audience engagement, and campaign performance. She crafts powerful marketing strategies, manages social channels, and drives digital growth through SEO, content, and paid advertising</p>
-                </div>
-                <h3>Agbosu Godfred</h3>
-                <p>
-                    🏛 KNUST<br>
-                    🤝 Head of Partnerships<br>
-                    🌍 Strategic Relations Lead<br>
-                    🔗 Partnership Head, SlimFile Inc. (2025)</p>
-
-                <div class="bio">
-                    <p>Agbosu is a connector and partnership strategist with a talent for building strong alliances and community networks. He leads collaborations, finds synergy between brands, and fosters long-term relationships to fuel company growth and visibility.</p>
-                </div>
-
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/isaac-abakah/"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
+                <!-- Additional slides... -->
             </div>
-        </section>
-    </main>
 
-    <footer>
-        <div class="footer-content">
-            <div>
-                <h3>SlimFile</h3>
-                <p>© 2025 Intelligent Compression</p>
-            </div>
-            <div>
-                <h3>Formats</h3>
-                <p>JPG/JPEG</p>
-                <p>PNG</p>
-                <p>PDF/WEBP</p>
-            </div>
-            <div>
-                <h3>Support</h3>
-                <p>Documentation</p>
-                <p>Contact</p>
-                <p>GitHub</p>
+            <div class="carousel-nav">
+                <span class="carousel-dot active" onclick="goToSlide(0)"></span>
+                <!-- Additional dots... -->
             </div>
         </div>
-    </footer>
+    </main>
 
-    <script src="scripts.js"></script>
+    <script>
+        // Same JavaScript as before
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.sf-carousel .profile-card');
+        const dots = document.querySelectorAll('.sf-carousel .carousel-dot');
+        const carousel = document.querySelector('.sf-carousel .carousel-container');
+
+        function showSlide(n) {
+            currentSlide = (n + slides.length) % slides.length;
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function moveSlide(n) {
+            showSlide(currentSlide + n);
+        }
+
+        function goToSlide(n) {
+            showSlide(n);
+        }
+
+        setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+
+        showSlide(0);
+    </script>
 </body>
-
 </html>
